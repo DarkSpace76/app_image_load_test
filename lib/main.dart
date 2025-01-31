@@ -87,6 +87,13 @@ class _HomePageState extends State<HomePage> {
   ///Метод вызывает переключение fullscreen из JS-функций
   void switchFullScreen() => js.context.callMethod('switchFullScreen');
 
+  /// Scaffold обернут в виджет Stack, что позволяет накладывать дополнительные слои поверх основного интерфейса.
+  /// Это позволит затемнить весь экран, включая AppBar, если он используется.
+  ///
+  /// FloatingActionButton добавлен в оверлей, что позволяет его рисовать поверх всех остальных элементов интерфейса.
+  ///
+  /// Текущая реализация обеспечивает равномерное затемнение всего экрана, включая все части приложения,
+  /// при этом FloatingActionButton и контекстное меню всегда остаются поверх остальных элементов, согласно требованиям ТЗ.
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
